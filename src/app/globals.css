@@ -2,12 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
+.mainContainer {
+  min-height: 80vh;
+}
+
+.myThoughts h1 {
+  font-size: 25px;
+}
+
+
+.myThoughts h2 {
+  font-size: 22px;
+}
+
+.myThoughts h3 {
+  font-size: 20px;
+}
+
+.myThoughts ol, .myThoughts ul {
+  padding-left: 10px;
+}
+
+.myThoughts li {
+  list-style: initial;
+}
+
+.myThoughts blockquote {
+  position: relative;
+  display: inline-block;
+}
+
+.myThoughts blockquote::before {
+  content: '"';
+  position: absolute;
+  left: -10px;
+  top: -5px;
+}
+
+
+.myThoughts blockquote::after {
+  content: '"';
+  position: absolute;
+  right: -10px;
+  top: -5px;
+}
+
+
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;
+  -webkit-mask: 
+    radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left, 
+    radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right, 
+    linear-gradient(to bottom left, #000 42%,#0000 43%) bottom left , 
+    linear-gradient(to bottom right,#000 42%,#0000 43%) bottom right;
+  -webkit-mask-size: 50% 50%;
+  -webkit-mask-repeat: no-repeat;
+  animation: l19 2s infinite linear;
+}
+@keyframes l19 {
+    90%,100% {background-size:100% 100%}
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -16,18 +89,15 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+
+@media (min-width: 	768px) {
+  .thought {
+    width: 30% !important;
   }
 }
